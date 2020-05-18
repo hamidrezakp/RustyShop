@@ -26,5 +26,6 @@ Order:                              | order (pk) (fk)    |   |
     |  datetime          |     +-----------------------------+
     |  address           |
     |  phone             |
+    |  status            |
     +--------------------+
 
