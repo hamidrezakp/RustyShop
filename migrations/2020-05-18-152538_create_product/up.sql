@@ -1,0 +1,8 @@
+CREATE TABLE "Product" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"name"	TEXT NOT NULL,
+	"description"	TEXT NOT NULL,
+	"image"	TEXT NOT NULL DEFAULT 'img/placeholder.png',
+	"quantity"	INTEGER NOT NULL DEFAULT 0,
+	"price"	REAL NOT NULL DEFAULT 0
+)
