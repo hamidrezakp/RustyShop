@@ -1,1 +1,1 @@
-DROP TABLE Payment
+DROP TABLE payment

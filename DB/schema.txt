@@ -1,29 +1,29 @@
 
-User:                           Payment:
+user:                           payment:
     +--------------------+          +--------------------+
     |  id (pk)           |<---+     | id (pk)            |
     |  username          |    |     | datetime           |
     |  password          |    |     | amount             |
-    |  firstname         |    +-----+ customer (fk)      |
-    |  lastname          |          | order (fk)         |
+    |  firstname         |    +-----+ customer_id (fk)   |
+    |  lastname          |          | order_id (fk)      |
     |  access            |          +--------+-----------+
     +--------------------+                   |               
                                              +---------------+
-                                                             |                                                                   
-Product:                                                     |
-    +--------------------+                                   |
-    |  id (pk)           |<-------------------------+        |
-    |  name              |                          |        |
-    |  description       |                          |        |
-    |  image             |                          |        |
-    |  quantity          |                          |        |
-    |  price             |      ordered_products:   |        |
-    +--------------------+          +---------------+----+   |
-                                    | product (pk) (fk)  |   |
-Order:                              | order (pk) (fk)    |   |
-    +--------------------+          +-------------+------+   |
-    |  id (pk)           |<----+------------------+          |
-    |  datetime          |     +-----------------------------+
+                                                               |                                                                   
+product:                                                       |
+    +--------------------+                                     |
+    |  id (pk)           |<-------------------------+          |
+    |  name              |                          |          |
+    |  description       |                          |          |
+    |  image             |                          |          |
+    |  quantity          |                          |          |
+    |  price             |      ordered_products:   |          |
+    +--------------------+          +---------------+------+   |
+                                    | product_id (pk) (fk) |   |
+order:                              | order_id (pk) (fk)   |   |
+    +--------------------+          +-------------+--------+   |
+    |  id (pk)           |<----+------------------+            |
+    |  datetime          |     +-------------------------------+
     |  address           |
     |  phone             |
     |  status            |

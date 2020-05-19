@@ -1,1 +1,1 @@
-DROP TABLE Order
+DROP TABLE order

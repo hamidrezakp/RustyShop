@@ -47,16 +47,9 @@ table! {
     }
 }
 
-joinable!(Order -> Product (datetime));
 joinable!(Payment -> Order (order));
 joinable!(Payment -> User (customer));
 joinable!(ordered_products -> Order (order));
 joinable!(ordered_products -> Product (product));
 
-allow_tables_to_appear_in_same_query!(
-    Order,
-    Payment,
-    Product,
-    User,
-    ordered_products,
-);
+allow_tables_to_appear_in_same_query!(Order, Payment, Product, User, ordered_products,);
