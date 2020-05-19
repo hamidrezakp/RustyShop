@@ -1,12 +1,16 @@
 #![feature(proc_macro_hygiene, decl_macro)]
-
+#[macro_use]
+extern crate diesel;
+extern crate dotenv;
 #[macro_use]
 extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 extern crate chrono;
 
-use rocket_contrib::databases::diesel;
+pub mod database;
+mod models;
+mod schema;
 
 #[database("sqlite_main")]
 struct DbConn(diesel::SqliteConnection);
@@ -16,9 +20,9 @@ fn index() -> &'static str {
     "Hello, world!"
 }
 
-fn main() {
-    rocket::ignite()
-        .mount("/", routes![index])
-        .attach(DbConn::fairing())
-        .launch();
+pub fn run_rocket() {
+    /*rocket::ignite()
+    .mount("/", routes![index])
+    .attach(DbConn::fairing())
+    .launch(); */
 }

@@ -1,5 +1,5 @@
 [package]
-name = "rusty-shop"
+name = "rusty_shop"
 version = "0.1.0"
 authors = ["Hamid R. K. Pishghadam <hamidrkp@riseup.net>"]
 edition = "2018"

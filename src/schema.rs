@@ -1,5 +1,5 @@
 table! {
-    Order (id) {
+    order (id) {
         id -> Integer,
         datetime -> Text,
         address -> Text,
@@ -9,17 +9,24 @@ table! {
 }
 
 table! {
-    Payment (id) {
-        id -> Integer,
-        datetime -> Text,
-        amount -> Float,
-        order -> Integer,
-        customer -> Integer,
+    ordered_products (order_id, product_id) {
+        order_id -> Integer,
+        product_id -> Integer,
     }
 }
 
 table! {
-    Product (id) {
+    payment (id) {
+        id -> Integer,
+        datetime -> Text,
+        amount -> Float,
+        order_id -> Integer,
+        customer_id -> Integer,
+    }
+}
+
+table! {
+    product (id) {
         id -> Integer,
         name -> Text,
         description -> Text,
@@ -30,7 +37,7 @@ table! {
 }
 
 table! {
-    User (id) {
+    user (id) {
         id -> Integer,
         username -> Text,
         password -> Text,
@@ -40,16 +47,9 @@ table! {
     }
 }
 
-table! {
-    ordered_products (order, product) {
-        order -> Integer,
-        product -> Integer,
-    }
-}
+joinable!(ordered_products -> order (order_id));
+joinable!(ordered_products -> product (product_id));
+joinable!(payment -> order (order_id));
+joinable!(payment -> user (customer_id));
 
-joinable!(Payment -> Order (order));
-joinable!(Payment -> User (customer));
-joinable!(ordered_products -> Order (order));
-joinable!(ordered_products -> Product (product));
-
-allow_tables_to_appear_in_same_query!(Order, Payment, Product, User, ordered_products,);
+allow_tables_to_appear_in_same_query!(order, ordered_products, payment, product, user,);

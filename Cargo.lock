@@ -719,7 +719,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rusty-shop"
+name = "rusty_shop"
 version = "0.1.0"
 dependencies = [
  "chrono",
