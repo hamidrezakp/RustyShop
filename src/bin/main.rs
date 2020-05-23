@@ -1,7 +1,5 @@
-use rusty_shop::*;
+use rusty_shop::run_website;
 
 fn main() {
-    let conn = database::establish_connection();
-    let products = database::get_all_products(&conn, 10);
-    println!("Products:\n{:?}", products);
+    run_website();
 }

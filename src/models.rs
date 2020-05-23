@@ -1,35 +1,36 @@
 use crate::schema::*;
 use chrono::naive::NaiveDateTime;
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 pub enum Status {
     Draft,
     Sent,
     Error(String),
 }
 
-#[derive(Identifiable, Queryable, PartialEq, Debug)]
+#[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
 #[table_name = "order"]
 pub struct Order {
-    id: i32,
-    datetime: NaiveDateTime,
-    address: String,
-    phone: String,
-    status: Status,
+    pub id: i32,
+    pub datetime: NaiveDateTime,
+    pub address: String,
+    pub phone: String,
+    pub status: Status,
 }
 
-#[derive(Identifiable, Queryable, Associations, PartialEq, Debug)]
+#[derive(Identifiable, Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
 #[belongs_to(Order)]
 #[table_name = "payment"]
 pub struct Payment {
-    id: i32,
-    datetime: NaiveDateTime,
-    amount: f32,
-    order_id: i32,
-    user_id: i32,
+    pub id: i32,
+    pub datetime: NaiveDateTime,
+    pub amount: f32,
+    pub order_id: i32,
+    pub user_id: i32,
 }
 
-#[derive(Queryable, Associations, PartialEq, Debug)]
+#[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
 #[belongs_to(Order)]
 #[belongs_to(Product)]
 #[table_name = "ordered_products"]
@@ -38,24 +39,24 @@ pub struct OrderedProduct {
     product_id: i32,
 }
 
-#[derive(Identifiable, Queryable, PartialEq, Debug)]
+#[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
 #[table_name = "product"]
 pub struct Product {
-    id: i32,
-    name: String,
-    description: String,
-    image: String,
-    quantity: i32,
-    price: f32,
+    pub id: i32,
+    pub name: String,
+    pub description: String,
+    pub image: String,
+    pub quantity: i32,
+    pub price: f32,
 }
 
-#[derive(Identifiable, Queryable, PartialEq, Debug)]
+#[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
 #[table_name = "user"]
 pub struct User {
-    id: i32,
-    username: String,
-    password: String,
-    firstname: String,
-    lastname: String,
-    access: i32,
+    pub id: i32,
+    pub username: String,
+    pub password: String,
+    pub firstname: String,
+    pub lastname: String,
+    pub access: i32,
 }
