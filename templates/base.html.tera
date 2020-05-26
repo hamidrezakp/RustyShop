@@ -17,13 +17,13 @@
 		<link rel="icon" href="assets/img/16x16.png" sizes="16x16" type="image/png">
 		<meta name="theme-color" content="#563d7c">
 
-		<!-- Custom styles for this template -->
+		<!-- Custom styles -->
 		<link href="assets/css/custom.css" rel="stylesheet">
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-md navbar-light bg-light py-5">
 			<div class="container">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" href="/">
 					<img src="assets/img/logo.svg" alt="Logo" width="50px" class="logo">
 				</a>
 				<button
@@ -39,21 +39,114 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">
+						<li class="nav-item">
+							<a class="nav-link" href="/">
 								Shop<span class="sr-only">(current)</span></a>
 						</li>
+						{% if page == 'dashboard' %}
+						<li class="nav-item active">
+							<a class="nav-link" href="/dashboard">
+								Dashboard
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								Orders
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								Products
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								Customers
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								Reports
+							</a>
+						</li>
+						{% endif %}
+
 					</ul>
+
+					{% if page == 'index' %}
 					<div>
-						<div class="buy-cart">
+					<ul class="navbar-nav mr-auto">
+						<li class="buy-cart">
 							<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 							Shopping Cart
 							<span class="badge badge-pill badge-dark">12</span>
-						</div>
+						</li>
+						<li class="user-info">
+							<button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+							|
+							<button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signinModal">Sign In</button>
+						</li>
+					</ul>
 					</div>
+
+					{% endif %}
 				</div>
 			</div>
 		</nav>
+
+		<!-- Sign Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+	  <h5 class="text-center mt-4" id="signupModalLabel">Sign Up</h5>
+	  <div class="m-3">
+		  <form>
+			  <div class="form-group">
+				  <input type="text" class="form-control text-center" id="username" placeholder="Username" required>
+			  </div>
+			  <div class="form-group">
+				  <input type="password" class="form-control text-center" id="password" placeholder="Password" required>
+			  </div>
+			  <div class="form-group">
+				  <input type="text" class="form-control text-center" id="firstname" placeholder="First Name" required>
+			  </div>
+			  <div class="form-group">
+				  <input type="text" class="form-control text-center" id="lastname" placeholder="Last Name" required>
+			  </div>
+		  </form>
+	  </div>
+
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+		<!-- Sign In Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+	  <h5 class="text-center mt-4" id="signinModalLabel">Sign In</h5>
+	  <div class="m-3">
+		  <form>
+			  <div class="form-group">
+				  <input type="text" class="form-control text-center" id="username" placeholder="Username" required>
+			  </div>
+			  <div class="form-group">
+				  <input type="password" class="form-control text-center" id="password" placeholder="Password" required>
+			  </div>
+		  </form>
+	  </div>
+
+	  <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Sign In</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 		{% block body %}
 		{% endblock body %}
@@ -63,7 +156,7 @@
 				<div class="col-12 col-md">
 					<img src="assets/img/logo.svg" alt="Logo" width="28px" class="mb-2">
 					<span>Rusty Shop - Feel free to use for any purpose.
-					<small class="d-block mb-3 text-muted">License : CC BY 2.0</small>
+						<small class="d-block mb-3 text-muted">License : CC BY 2.0</small>
 				</div>
 			</div>
 		</footer>

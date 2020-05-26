@@ -6,12 +6,12 @@
   padding: 0.5rem;
 }
 
-.card > a {
+a, .link {
   text-decoration: none;
   color: var(--gray);
 }
 
-.card > a:hover {
+a:hover, .link:hover {
   text-decoration: none;
   color: var(--gray-dark);
 }
@@ -35,6 +35,12 @@
   padding-inline: 1rem;
 }
 
+.user-info {
+  line-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+
 /*
  * Extra utilities
  */
@@ -51,4 +57,3 @@
 }
 
 .overflow-hidden { overflow: hidden; }
-
