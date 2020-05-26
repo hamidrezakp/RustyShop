@@ -1,0 +1,54 @@
+.container {
+  max-width: 960px;
+}
+
+.card-body {
+  padding: 0.5rem;
+}
+
+.card > a {
+  text-decoration: none;
+  color: var(--gray);
+}
+
+.card > a:hover {
+  text-decoration: none;
+  color: var(--gray-dark);
+}
+
+.stay-left {
+  left: 0px;
+}
+
+.stay-right {
+  right: 0px;
+}
+
+.font-1rem {
+  font-size: 1rem;
+}
+
+.buy-cart {
+  background: #dfe2e9;
+  border-radius: 35px;
+  line-height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+/*
+ * Extra utilities
+ */
+
+.flex-equal > * {
+  -ms-flex: 1;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+}
+
+.overflow-hidden { overflow: hidden; }
+
