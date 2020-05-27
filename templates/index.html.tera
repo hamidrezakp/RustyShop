@@ -1,7 +1,42 @@
 {% extends "base" %}
 
 {% block body %}
-<div class="album py-5 bg-light">
+
+<div class="minicart">
+	<div class="minicart-overlay"></div>
+	<div class="minicart-inner">
+		<div class="minicart-header">
+			<span class="badge badge-pill badge-dark">0</span>
+			<div class="text-center minicart-header-title">Shopping Cart</div>
+			<a href="#"><i class="fa fa-times"></i></a>
+		</div>
+		<div class="minicart-products p-3">
+			<div class="minicart-product-row">
+				<div class="minicart-product-image">
+					<img src="/assets/img/product/cat.png" alt="Resist" loading="lazy">
+				</div>
+				<div class="minicart-product-info">
+					<div class="minicart-product-info-title">
+						<h5>Resist</h5>
+						<i class="fa fa-trash minicart-product-info-delIcon" aria-hidden="true"></i>
+					</div>
+					<div class="minicart-product-info-price">
+						<div class="minicart-product-info-price-p">$600</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="p-4">
+			<div class="minicart-footer-total">
+				<div class="minicart-footer-total-label">Total Price:</div>
+				<div class="minicart-footer-total-price">$0</div>
+			</div>
+			<div class="btn btn-success minicart-footer-btn">Finilize Shop</div>
+		</div>
+	</div>
+</div>
+
+<div class="album py-5">
 	<div class="container">
 		<div class="row">
 			{% for product in products %}
@@ -9,12 +44,16 @@
 				<div class="card mb-4 shadow-sm">
 					<a href="product?id={{ product.id }}"><span 
 					   class="badge badge-success position-absolute m-2 font-1rem stay-left">{{ product.price | round(method="common", precision=2) }}$</span>
-						<img src="assets/img/product/{{ product.image }}" alt="Github" width="100%" height="225">
+						<img src="assets/img/product/{{ product.image }}" alt="Github" width="100%" height="250">
 						<div class="card-body">
 							<p class="card-text">{{ product.name }}</p>
 						</div>
-					</a>
-					<a class="position-absolute m-2 stay-right" href="#TODO">
+			</a>
+					<a class="position-absolute m-2 stay-right addToCartBtn" 
+							  href="#" data-id="{{ product.id }}"
+										   data-name="{{ product.name }}"
+										   data-price="{{ product.price | round(method="common", precision=2) }}"
+										   data-image="{{ product.image }}">
 						<span class="badge badge-primary font-1rem"><i class="fa fa-plus" aria-hidden="true"></i></span></a>
 				</div>
 			</div>
@@ -22,4 +61,5 @@
 		</div>
 	</div>
 </div>
+
 {% endblock body %}

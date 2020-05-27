@@ -35,7 +35,32 @@ $('.addToCartBtn').on('click', function(e) {
     addToCart(product);
 });
 
+$('.card').hover(function(){
+  $(this).find(' > a.stay-right').addClass('stay-right-visible');
+},function(){
+  $(this).find(' > a.stay-right').removeClass('stay-right-visible');
+})
+
 function update_cart_count(cart) {
 	let sum = cart.products.reduce((psum, item) => psum + item.quantity, 0);
 	$('.buy-cart').children()[1].textContent = sum;
 }
+
+//
+// Minicart
+//
+function open_minicart() {
+	$('.minicart').addClass('minicart-open');
+	$('.minicart-overlay').addClass('minicart-overlay-fadein');
+	$('.minicart-inner').addClass('minicart-inner-open');
+}
+
+function close_minicart() {
+	$('.minicart').removeClass('minicart-open');
+	$('.minicart-overlay').removeClass('minicart-overlay-fadein');
+	$('.minicart-inner').removeClass('minicart-inner-open');
+}
+
+$('.minicart-header').children('a').click(close_minicart);
+$('.buy-cart').click(open_minicart);
+$('.minicart-overlay').click(close_minicart);

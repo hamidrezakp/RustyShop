@@ -21,7 +21,7 @@
 		<link href="assets/css/custom.css" rel="stylesheet">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-md navbar-light bg-light py-5">
+		<nav class="navbar navbar-expand-md navbar-light py-5">
 			<div class="container">
 				<a class="navbar-brand" href="/">
 					<img src="assets/img/logo.svg" alt="Logo" width="50px" class="logo">
@@ -76,6 +76,7 @@
 					{% if page == 'index' %}
 					<div>
 						<ul class="navbar-nav mr-auto">
+
 							<li class="buy-cart">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								Shopping Cart
