@@ -1,9 +1,8 @@
-// Initial Cart object in browser storage
-var cart = {};
-cart.products = [];
-
-localStorage.setItem('cart', JSON.stringify(cart));
-
+// Initial Cart update
+if (localStorage && localStorage.getItem('cart')) {
+	var cart = JSON.parse(localStorage.getItem('cart'));            
+	update_cart_count(cart);
+}
 
 function addToCart(product) {
     // Retrieve the cart object from local storage
@@ -18,8 +17,12 @@ function addToCart(product) {
 		}
 
         localStorage.setItem('cart', JSON.stringify(cart));
-		update_cart_count(cart);
-    } 
+    } else {
+		var cart = {};
+		cart.products = [product];
+		localStorage.setItem('cart', JSON.stringify(cart));
+	}
+	update_cart_count(cart);
 }
 
 $('.addToCartBtn').on('click', function(e) {
@@ -33,6 +36,7 @@ $('.addToCartBtn').on('click', function(e) {
 	product.quantity = 1;
 
     addToCart(product);
+	addProductToMinicart(product, image);
 });
 
 $('.card').hover(function(){
@@ -43,7 +47,8 @@ $('.card').hover(function(){
 
 function update_cart_count(cart) {
 	let sum = cart.products.reduce((psum, item) => psum + item.quantity, 0);
-	$('.buy-cart').children()[1].textContent = sum;
+	$('.buy-cart').children('span')[0].textContent = sum;
+	$('.minicart-header').children('span')[0].textContent = sum;
 }
 
 //
@@ -64,3 +69,8 @@ function close_minicart() {
 $('.minicart-header').children('a').click(close_minicart);
 $('.buy-cart').click(open_minicart);
 $('.minicart-overlay').click(close_minicart);
+
+function addProductToMinicart(product, image) {
+	//TODO
+}
+
