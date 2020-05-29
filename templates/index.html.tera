@@ -11,20 +11,6 @@
 			<a href="#"><i class="fa fa-times"></i></a>
 		</div>
 		<div class="minicart-products p-3">
-			<div class="minicart-product-row">
-				<div class="minicart-product-image">
-					<img src="/assets/img/product/cat.png" alt="Resist" loading="lazy">
-				</div>
-				<div class="minicart-product-info">
-					<div class="minicart-product-info-title">
-						<h5>Resist</h5>
-						<i class="fa fa-trash minicart-product-info-delIcon" aria-hidden="true"></i>
-					</div>
-					<div class="minicart-product-info-price">
-						<div class="minicart-product-info-price-p">$600</div>
-					</div>
-				</div>
-			</div>
 		</div>
 		<div class="p-4">
 			<div class="minicart-footer-total">
@@ -48,13 +34,14 @@
 						<div class="card-body">
 							<p class="card-text">{{ product.name }}</p>
 						</div>
-			</a>
+					</a>
 					<a class="position-absolute m-2 stay-right addToCartBtn" 
 							  href="#" data-id="{{ product.id }}"
 										   data-name="{{ product.name }}"
 										   data-price="{{ product.price | round(method="common", precision=2) }}"
 										   data-image="{{ product.image }}">
-						<span class="badge badge-primary font-1rem"><i class="fa fa-plus" aria-hidden="true"></i></span></a>
+						<span class="badge badge-primary font-1rem"><i class="fa fa-plus" aria-hidden="true"></i></span>
+				    </a>
 				</div>
 			</div>
 			{% endfor %}

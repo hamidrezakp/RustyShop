@@ -209,16 +209,17 @@ a:hover, .link:hover {
 }
 
 .minicart-product-info-price  {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
   line-height: 160%;
 }
 
 .minicart-product-info-price-p {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .minicart-footer-total {
