@@ -1,1 +1,1 @@
-DROP TABLE ordered_products
+DROP TABLE Ordered_products

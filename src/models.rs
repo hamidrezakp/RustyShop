@@ -10,7 +10,7 @@ pub enum Status {
 }
 
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
-#[table_name = "order"]
+#[table_name = "orders"]
 pub struct Order {
     pub id: i32,
     pub datetime: NaiveDateTime,
@@ -20,8 +20,8 @@ pub struct Order {
 }
 
 #[derive(Identifiable, Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
-#[belongs_to(Order)]
-#[table_name = "payment"]
+#[belongs_to(Order, foreign_key = "order_id")]
+#[table_name = "payments"]
 pub struct Payment {
     pub id: i32,
     pub datetime: NaiveDateTime,
@@ -31,8 +31,8 @@ pub struct Payment {
 }
 
 #[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
-#[belongs_to(Order)]
-#[belongs_to(Product)]
+#[belongs_to(Order, foreign_key = "order_id")]
+#[belongs_to(Product, foreign_key = "product_id")]
 #[table_name = "ordered_products"]
 pub struct OrderedProduct {
     order_id: i32,
@@ -40,7 +40,7 @@ pub struct OrderedProduct {
 }
 
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
-#[table_name = "product"]
+#[table_name = "products"]
 pub struct Product {
     pub id: i32,
     pub name: String,
@@ -51,7 +51,7 @@ pub struct Product {
 }
 
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
-#[table_name = "user"]
+#[table_name = "users"]
 pub struct User {
     pub id: i32,
     pub username: String,
@@ -59,4 +59,14 @@ pub struct User {
     pub firstname: String,
     pub lastname: String,
     pub access: i32,
+}
+
+/// The user type we get in Forms
+#[derive(Debug, PartialEq, FromForm, Insertable)]
+#[table_name = "users"]
+pub struct FormUser {
+    pub username: String,
+    pub password: String,
+    pub firstname: String,
+    pub lastname: String,
 }

@@ -1,6 +1,8 @@
 use crate::database;
+use crate::models;
 use crate::rocket;
 
+use rocket::request::Form;
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::tera::Context;
 use rocket_contrib::templates::Template;
@@ -26,9 +28,14 @@ fn dashboard(conn: DbConn) -> Template {
     Template::render("dashboard", &context)
 }
 
+#[post("/signup", data = "<user>")]
+fn signup(conn: DbConn, user: Form<models::FormUser>) {
+    database::insert_user(&conn, user.into_inner());
+}
+
 pub fn run_rocket() {
     rocket::ignite()
-        .mount("/", routes![index, dashboard])
+        .mount("/", routes![index, dashboard, signup])
         .mount(
             "/assets",
             StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/templates/files")),

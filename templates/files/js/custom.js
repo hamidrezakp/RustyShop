@@ -1,19 +1,17 @@
 // Initial Cart update
-if (localStorage && localStorage.getItem('cart')) {
-	if (!localStorage){
-		console.log("Browser is not supporting LocalStorage");
-	} else {
-		var cart = JSON.parse(localStorage.getItem('cart'));            
-		if (cart) {
-			var cart = JSON.parse(localStorage.getItem('cart'));            
-			load_minicart(cart.products);
-			update();
-		} else {
-			var cart = {};
-			cart.products = [];
-			localStorage.setItem('cart', JSON.stringify(cart));
-		}
-	}
+if (!localStorage){
+    console.log("Browser is not supporting LocalStorage");
+} else {
+    var cart = JSON.parse(localStorage.getItem('cart'));            
+    if (cart) {
+        var cart = JSON.parse(localStorage.getItem('cart'));            
+        load_minicart(cart.products);
+        update();
+    } else {
+        var cart = {};
+        cart.products = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 }
 
 function addToCart(product) {
