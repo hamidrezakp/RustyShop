@@ -1,5 +1,5 @@
 .container {
-  max-width: 960px;
+  max-width: 1200px;
 }
 
 .card-body {
@@ -244,6 +244,52 @@ a:hover, .link:hover {
   line-height: 2rem;
   font-weight: 800;
 }
+
+
+/* Pipeline - Checkout Page */
+.pipeline {
+}
+
+.pipeline-step {
+  display: inline-block;
+  color: var(--gray);
+  max-width: 202px;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.pipeline-step-active {
+  color: var(--info);
+}
+
+.pipeline-step-inner {
+  float: right;
+} 
+
+.pipeline-step-icon {
+  font-size: 35px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.pipeline-step-text {
+  font-size: 14px;
+  min-width: 100px;
+}
+
+.pipeline-line {
+  float: left;
+  width: 95px;
+  height: 2px;
+  background: var(--gray);
+  margin-top: 16px;
+  border-radius: 5px;
+}
+
+.pipeline-line-active {
+  background: var(--info);
+}
+
 
 /*
  * Extra utilities

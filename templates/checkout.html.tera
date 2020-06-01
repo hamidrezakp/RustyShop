@@ -1,0 +1,84 @@
+{% extends "base.headless" %}
+
+{% block body %}
+<div class="container">
+	<div class="my-5 pipeline text-center">
+		<div class="pipeline-step">
+			<div class="pipeline-step-inner">
+				<i aria-hidden="true" class="fa fa-shopping-cart pipeline-step-icon"></i>
+				<h3 class="pipeline-step-text">Check Cart</h3>
+			</div>
+		</div>
+
+		<div class="pipeline-step">
+			<div class="pipeline-line"></div>
+			<div class="pipeline-step-inner">
+				<i aria-hidden="true" class="fa fa-truck pipeline-step-icon"></i>
+				<h3 class="pipeline-step-text">Sent Details</h3>
+			</div>
+		</div>
+
+		<div class="pipeline-step">
+			<div class="pipeline-line"></div>
+			<div class="pipeline-step-inner">
+				<i aria-hidden="true" class="fa fa-wallet pipeline-step-icon"></i>
+				<h3 class="pipeline-step-text">Pay</h3>
+			</div>
+		</div>
+
+		<div class="pipeline-step">
+			<div class="pipeline-line"></div>
+			<div class="pipeline-step-inner">
+				<i aria-hidden="true" class="fa fa-check-circle pipeline-step-icon"></i>
+				<h3 class="pipeline-step-text">Finish</h3>
+			</div>
+		</div>
+	</div>
+
+	<div class="checkout-products my-2">
+		<table class="table table-borderless">
+			<thead>
+				<tr>
+					<th scope="col">Product</th>
+					<th scope="col">Price</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Total Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+				<tr>
+					<th scope="row">2</th>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				</tr>
+				<tr>
+					<th scope="row">3</th>
+					<td colspan="2">Larry the Bird</td>
+					<td>@twitter</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+{% endblock body %}

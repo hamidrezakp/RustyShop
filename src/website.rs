@@ -28,6 +28,14 @@ fn dashboard(conn: DbConn) -> Template {
     Template::render("dashboard", &context)
 }
 
+#[get("/checkout")]
+fn checkout(conn: DbConn) -> Template {
+    let mut context = Context::new();
+    context.insert("title", "Checkout");
+    context.insert("page", "checkout");
+    Template::render("checkout", &context)
+}
+
 #[post("/signup", data = "<user>")]
 fn signup(conn: DbConn, user: Form<models::FormUser>) {
     database::insert_user(&conn, user.into_inner());
@@ -35,7 +43,7 @@ fn signup(conn: DbConn, user: Form<models::FormUser>) {
 
 pub fn run_rocket() {
     rocket::ignite()
-        .mount("/", routes![index, dashboard, signup])
+        .mount("/", routes![index, dashboard, checkout, signup])
         .mount(
             "/assets",
             StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/templates/files")),
