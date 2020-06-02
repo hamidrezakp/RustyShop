@@ -82,7 +82,7 @@ function update_minicart(product_id, new_quantity){
 function update_minicart_sum() {
 	var cart = JSON.parse(localStorage.getItem('cart'));            
 	let sum = cart.products.reduce((psum, item) => psum + item.quantity * item.price, 0);
-	$('.minicart-footer-total-price')[0].textContent = `$${sum}`;
+	$('.minicart-footer-total-price')[0].textContent = `$${sum.toFixed(2)}`;
 }
 
 function open_minicart() {

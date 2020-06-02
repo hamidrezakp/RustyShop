@@ -36,49 +36,38 @@
 	</div>
 
 	<div class="checkout-products my-2">
-		<table class="table table-borderless">
-			<thead>
-				<tr>
-					<th scope="col">Product</th>
-					<th scope="col">Price</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">Total Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
-			</tbody>
-		</table>
+		<div role="grid">
+			<div class="checkout-products-table-head">
+				<div class="checkout-products-table-head-row">
+					<div class="checkout-products-table-head-cell" role="columnheader" 
+						tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+						<div>Product</div>
+					</div>
+
+					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
+						tabindex="-1">
+						<div>Price</div>
+					</div>
+
+					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
+						tabindex="-1">
+						<div>Quantity</div>
+					</div>
+
+					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
+						tabindex="-1">
+						<div>Total Price</div>
+					</div>
+
+					<div class="checkout-products-table-head-cell" role="columnheader"
+						tabindex="-1" style="flex: 40 0 auto; width: 40px; max-width: 40px;">
+					</div>
+
+				</div>
+			</div>
+			<div class="checkout-products-table-body">
+			</div>
+		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 {% endblock body %}
