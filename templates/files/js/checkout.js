@@ -1,3 +1,7 @@
+// Constants
+//
+const POSTCOST = 12
+//
 // Initial products update
 if (!localStorage){
     console.log("Browser is not supporting LocalStorage");
@@ -44,7 +48,9 @@ function load_products(products){
 function update_products_sum() {
 	var cart = JSON.parse(localStorage.getItem('cart'));            
 	let sum = cart.products.reduce((psum, item) => psum + item.quantity * item.price, 0);
-	$('.checkout-products-costs-value')[0].textContent = `$${sum}`;
+	$('.checkout-products-costs-value').text(`$${sum}`);
+	$('.checkout-post-cost').text(`$${POSTCOST}`);
+	$('.checkout-total-cost').text(`$${sum + POSTCOST}`);
 }
 
 function add_to_page(product) {

@@ -397,11 +397,12 @@ a:hover, .link:hover {
 	max-width: 400px;
 	width: 100%;
 	display: flex;
+	border-bottom: 1px solid #e4e4e4;
+	border-top: 1px solid #e4e4e4;
+	flex-direction: column;
 }
 
 .checkout-products-costs-row {
-	border-bottom: 1px solid #e4e4e4;
-	border-top: 1px solid #e4e4e4;
 	width: 100%;
 }
 
@@ -410,7 +411,9 @@ a:hover, .link:hover {
 	color: var(--gray-dark);
 }
 
-.checkout-products-costs-value {
+.checkout-products-costs-value,
+.checkout-post-cost,
+.checkout-total-cost {
 	float: right;
 	color: var(--gray);
 }
@@ -427,6 +430,11 @@ a:hover, .link:hover {
 
 .checkout-sentdetails {
 	display: none;
+}
+
+.checkout-sentdetails-body {
+	display: flex;
+	justify-content: center;
 }
 
 

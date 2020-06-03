@@ -21,7 +21,7 @@
 		<div class="pipeline-step pipeline-payment">
 			<div class="pipeline-line"></div>
 			<div class="pipeline-step-inner">
-				<i aria-hidden="true" class="fa fa-wallet pipeline-step-icon"></i>
+				<i aria-hidden="true" class="fa fa-credit-card pipeline-step-icon"></i>
 				<h3 class="pipeline-step-text">Pay</h3>
 			</div>
 		</div>
@@ -87,24 +87,82 @@
 	</div>
 
 	<div class="checkout-sentdetails my-2">
+		<div class="checkout-sentdetails-body"> 
+			<form class="checkout-sentdetails-form" method="post" id="checkout-form">
+				<div class="form-row align-items-center">
+					<div class="col-auto">
+						<label class="sr-only" for="firstname">First name</label>
+						<input type="text" class="form-control mb-2" id="firstname" required placeholder="First name">
+					</div>
+					<div class="col-auto">
+						<label class="sr-only" for="lastname">Last name</label>
+						<input type="text" class="form-control mb-2" id="lastname" required placeholder="Last Name">
+					</div>
+				</div>
+				<div class="form-row align-items-center mt-4">
+					<div class="col-auto">
+						<label class="sr-only" for="address">Address</label>
+						<input type="text" class="form-control mb-2" id="address" required placeholder="Address">
+					</div>
+					<div class="col-auto">
+						<label class="sr-only" for="phonenumber">Phone Number</label>
+						<input type="text" class="form-control mb-2" id="phonenumber" required placeholder="Phone Number">
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="checkout-products-costs-wrapper my-5">
+			<div class="checkout-products-costs-inner">
+				<div class="checkout-products-costs-row py-1">
+					<div class="checkout-products-costs-caption">
+						Total Price of Cart:
+					</div>
+					<div class="checkout-products-costs-value">
+						0
+					</div>
+				</div>
+				<div class="checkout-products-costs-row py-1">
+					<div class="checkout-products-costs-caption">
+						Post Cost:
+					</div>
+					<div class="checkout-post-cost">
+						$0
+					</div>
+				</div>
+				<div class="checkout-products-costs-row py-1">
+					<div class="checkout-products-costs-caption font-weight-bold">
+						Total Cost:
+					</div>
+					<div class="checkout-total-cost font-weight-bold">
+						$0
+					</div>
+				</div>
+			</div>
+		</div>
 			<div class="checkout-navigations mt-5">
 				<button data-target="products" class="btn btn-secondary checkout-navigations-btn">Check Order</button>
 				<button data-target="payment" class="btn btn-success checkout-navigations-btn">Pay it</button>
 			</div>
-	</div>
+		</div>
 
-	<div class="checkout-payment my-2">
+		<div class="checkout-payment my-2">
 			<div class="checkout-navigations mt-5">
 				<button data-target="sentdetails" class="btn btn-secondary checkout-navigations-btn">Change Details</button>
 				<button data-target="finish" class="btn btn-success checkout-navigations-btn">Finish</button>
 			</div>
-	</div>
+		</div>
 
-	<div class="checkout-finish my-2">
-			<div class="checkout-navigations mt-5">
-				<button data-target="shop" class="btn btn-secondary checkout-navigations-btn">Back to Shop</button>
+		<div class="checkout-finish my-2">
+			<div class="checkout-finish-body">
+				<h1 class="Display-4 text-center text-black-50">
+					Thank You!</br>
+					Have a nice day! <i aria-hidden="true" class="fa fa-smile"></i>
+				</h1>
 			</div>
-	</div>
+			<div class="checkout-navigations mt-5">
+				<button data-target="shop" class="btn btn-primary checkout-navigations-btn">Back to Shop</button>
+			</div>
+		</div>
 
-</div>
-{% endblock body %}
+	</div>
+	{% endblock body %}
