@@ -17,7 +17,8 @@
 				<div class="minicart-footer-total-label">Total Price:</div>
 				<div class="minicart-footer-total-price">$0</div>
 			</div>
-			<div class="btn btn-success minicart-footer-btn">Finilize Shop</div>
+			<div class="btn btn-success minicart-footer-btn">
+				<a class="btn text-light" href="/checkout">Finish Shopping</a></div>
 		</div>
 	</div>
 </div>

@@ -17,6 +17,11 @@ if (!localStorage){
     }
 }
 
+init_nav_btns();
+change_section('products');
+
+
+
 function update_cart_count() {
 	//TODO
 	/*
@@ -37,12 +42,9 @@ function load_products(products){
 }
 
 function update_products_sum() {
-	// TODO
-	/*
 	var cart = JSON.parse(localStorage.getItem('cart'));            
 	let sum = cart.products.reduce((psum, item) => psum + item.quantity * item.price, 0);
-	$('.')[0].textContent = `$${sum}`;
-	*/
+	$('.checkout-products-costs-value')[0].textContent = `$${sum}`;
 }
 
 function add_to_page(product) {
@@ -88,3 +90,32 @@ function remove_product(node){
 	update();
 }
 
+function change_section(new_section) {
+	let sections = ['products', 'sentdetails', 'payment', 'finish'];
+	
+	if (new_section == 'shop') {
+		window.location = '/';
+		return;
+	}
+
+	sections.forEach(function(section) {
+		if (section == new_section) {
+			$(`.checkout-${section}`).addClass('checkout-active');
+			$(`.pipeline-${section}`).addClass('pipeline-step-active');
+			$(`.pipeline-${section}`).find('.pipeline-line')
+				.addClass('pipeline-ln-active');
+		} else {
+			$(`.checkout-${section}`).removeClass('checkout-active');
+			$(`.pipeline-${section}`).removeClass('pipeline-step-active');
+			$(`.pipeline-${section}`).find('.pipeline-line')
+				.removeClass('pipeline-ln-active');
+		}
+	});	
+}
+
+function init_nav_btns() {
+	$('.checkout-navigations-btn').on('click', function(e) {
+    e.preventDefault();
+		change_section($(this).attr('data-target'));
+	});
+}

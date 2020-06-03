@@ -3,14 +3,14 @@
 {% block body %}
 <div class="container">
 	<div class="my-5 pipeline text-center">
-		<div class="pipeline-step">
+		<div class="pipeline-step pipeline-products">
 			<div class="pipeline-step-inner">
 				<i aria-hidden="true" class="fa fa-shopping-cart pipeline-step-icon"></i>
 				<h3 class="pipeline-step-text">Check Cart</h3>
 			</div>
 		</div>
 
-		<div class="pipeline-step">
+		<div class="pipeline-step pipeline-sentdetails">
 			<div class="pipeline-line"></div>
 			<div class="pipeline-step-inner">
 				<i aria-hidden="true" class="fa fa-truck pipeline-step-icon"></i>
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 
-		<div class="pipeline-step">
+		<div class="pipeline-step pipeline-payment">
 			<div class="pipeline-line"></div>
 			<div class="pipeline-step-inner">
 				<i aria-hidden="true" class="fa fa-wallet pipeline-step-icon"></i>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 
-		<div class="pipeline-step">
+		<div class="pipeline-step pipeline-finish">
 			<div class="pipeline-line"></div>
 			<div class="pipeline-step-inner">
 				<i aria-hidden="true" class="fa fa-check-circle pipeline-step-icon"></i>
@@ -40,34 +40,71 @@
 			<div class="checkout-products-table-head">
 				<div class="checkout-products-table-head-row">
 					<div class="checkout-products-table-head-cell" role="columnheader" 
-						tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
+																												 tabindex="-1" style="flex: 200 0 auto; width: 200px; max-width: 200px;">
 						<div>Product</div>
 					</div>
 
 					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
-						tabindex="-1">
+																																											tabindex="-1">
 						<div>Price</div>
 					</div>
 
 					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
-						tabindex="-1">
+																																											tabindex="-1">
 						<div>Quantity</div>
 					</div>
 
 					<div class="checkout-products-table-100w checkout-products-table-head-cell" role="columnheader" 
-						tabindex="-1">
+																																											tabindex="-1">
 						<div>Total Price</div>
 					</div>
 
 					<div class="checkout-products-table-head-cell" role="columnheader"
-						tabindex="-1" style="flex: 40 0 auto; width: 40px; max-width: 40px;">
+																												 tabindex="-1" style="flex: 40 0 auto; width: 40px; max-width: 40px;">
 					</div>
 
 				</div>
 			</div>
 			<div class="checkout-products-table-body">
 			</div>
+			<div class="checkout-products-costs-wrapper my-5">
+				<div class="checkout-products-costs-inner">
+					<div class="checkout-products-costs-row py-4">
+						<div class="checkout-products-costs-caption">
+							Total Price of Cart:
+						</div>
+						<div class="checkout-products-costs-value">
+							0
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="checkout-navigations mt-5">
+				<button data-target="shop" class="btn btn-secondary checkout-navigations-btn">Back</button>
+				<button data-target="sentdetails" class="btn btn-success checkout-navigations-btn">Submit Order</button>
+			</div>
 		</div>
 	</div>
+
+	<div class="checkout-sentdetails my-2">
+			<div class="checkout-navigations mt-5">
+				<button data-target="products" class="btn btn-secondary checkout-navigations-btn">Check Order</button>
+				<button data-target="payment" class="btn btn-success checkout-navigations-btn">Pay it</button>
+			</div>
+	</div>
+
+	<div class="checkout-payment my-2">
+			<div class="checkout-navigations mt-5">
+				<button data-target="sentdetails" class="btn btn-secondary checkout-navigations-btn">Change Details</button>
+				<button data-target="finish" class="btn btn-success checkout-navigations-btn">Finish</button>
+			</div>
+	</div>
+
+	<div class="checkout-finish my-2">
+			<div class="checkout-navigations mt-5">
+				<button data-target="shop" class="btn btn-secondary checkout-navigations-btn">Back to Shop</button>
+			</div>
+	</div>
+
 </div>
 {% endblock body %}
