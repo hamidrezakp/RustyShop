@@ -88,25 +88,18 @@
 
 	<div class="checkout-sentdetails my-2">
 		<div class="checkout-sentdetails-body"> 
-			<form class="checkout-sentdetails-form" method="post" id="checkout-form">
-				<div class="form-row align-items-center">
-					<div class="col-auto">
-						<label class="sr-only" for="firstname">First name</label>
-						<input type="text" class="form-control mb-2" id="firstname" required placeholder="First name">
-					</div>
-					<div class="col-auto">
-						<label class="sr-only" for="lastname">Last name</label>
-						<input type="text" class="form-control mb-2" id="lastname" required placeholder="Last Name">
-					</div>
-				</div>
+			<form class="checkout-sentdetails-form" method="post" id="checkout-form"
+				action="/checkout">
 				<div class="form-row align-items-center mt-4">
 					<div class="col-auto">
 						<label class="sr-only" for="address">Address</label>
-						<input type="text" class="form-control mb-2" id="address" required placeholder="Address">
+						<input type="text" class="form-control mb-2" id="address"
+						 name="address" required placeholder="Address">
 					</div>
 					<div class="col-auto">
 						<label class="sr-only" for="phonenumber">Phone Number</label>
-						<input type="text" class="form-control mb-2" id="phonenumber" required placeholder="Phone Number">
+						<input type="text" class="form-control mb-2" id="phonenumber"
+						 name="phonenumber" required placeholder="Phone Number">
 					</div>
 				</div>
 			</form>
@@ -146,9 +139,17 @@
 		</div>
 
 		<div class="checkout-payment my-2">
+			<div class="checkout-payment-body">
+				<h1 class="Display-4 text-center text-black-50">
+					Fake Payment Done! <i aria-hidden="true" class="fa fa-check-circle"></i>
+				</h1>
+				<h5 class="text-right text-success">Click for submit! 
+					<i aria-hidden="true" class="fa fa-hand-point-down"></i>
+				</h5>
+			</div>
 			<div class="checkout-navigations mt-5">
 				<button data-target="sentdetails" class="btn btn-secondary checkout-navigations-btn">Change Details</button>
-				<button data-target="finish" class="btn btn-success checkout-navigations-btn">Finish</button>
+				<button type="submit" data-target="finish" class="btn btn-success checkout-navigations-btn">Finish</button>
 			</div>
 		</div>
 

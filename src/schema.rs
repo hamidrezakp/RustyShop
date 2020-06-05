@@ -8,7 +8,7 @@ table! {
 table! {
     orders (id) {
         id -> Integer,
-        datetime -> Text,
+        datetime -> Timestamp,
         address -> Text,
         phone -> Text,
         status -> Text,
@@ -18,10 +18,10 @@ table! {
 table! {
     payments (id) {
         id -> Integer,
-        datetime -> Text,
+        datetime -> Timestamp,
         amount -> Float,
         order_id -> Integer,
-        customer_id -> Integer,
+        user_id -> Integer,
     }
 }
 
@@ -50,6 +50,6 @@ table! {
 joinable!(ordered_products -> orders (order_id));
 joinable!(ordered_products -> products (product_id));
 joinable!(payments -> orders (order_id));
-joinable!(payments -> users (customer_id));
+joinable!(payments -> users (user_id));
 
 allow_tables_to_appear_in_same_query!(ordered_products, orders, payments, products, users,);

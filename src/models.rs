@@ -1,5 +1,5 @@
 use crate::schema::*;
-use chrono::naive::NaiveDateTime;
+use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, PartialEq, Serialize, Deserialize)]
@@ -30,13 +30,14 @@ pub struct Payment {
     pub user_id: i32,
 }
 
-#[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
+#[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize, Insertable)]
 #[belongs_to(Order, foreign_key = "order_id")]
 #[belongs_to(Product, foreign_key = "product_id")]
 #[table_name = "ordered_products"]
 pub struct OrderedProduct {
-    order_id: i32,
-    product_id: i32,
+    pub order_id: i32,
+    pub product_id: i32,
+    pub quantity: usize,
 }
 
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
@@ -69,4 +70,13 @@ pub struct FormUser {
     pub password: String,
     pub firstname: String,
     pub lastname: String,
+}
+
+/// The type we get in checkout page
+#[derive(Debug, Deserialize)]
+pub struct CheckoutForm {
+    pub user_id: i32,
+    pub products: Vec<(i32, usize)>,
+    pub address: String,
+    pub phonenumber: String,
 }
