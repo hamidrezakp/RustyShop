@@ -1,3 +1,4 @@
+![Rusty Shop](SVG/banner.png)
 # How to run *rusty-shop* in local
 
 1- install rust in your machine
