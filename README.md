@@ -1,9 +1,16 @@
 # How to run *rusty-shop* in local
+
 1- install rust in your machine
+
 2- install sqllite and other dependencies
+
 3- install diesel_cli
+
 4- build wit cargo
-6- setup database
+
+5- setup database
+
+6- run
 
 ----
 ## install rust on your machine 
@@ -43,13 +50,12 @@ after build app you can use diesel to setup database
 ```
 diesel setup --database-url DB/DataBase.SQLITE
 ```
- seed the database 
-for seed database first seed enter database in sqlite3
+ *seed the database* 
+for seed database use this command to import defualt value in database
 ```
-sqlite3 DB/DataBase.SQLITE
-```
-then seed it.
+cat DB/demo.sql | sqlite3 DB/DataBase.SQLITE
 
+```
 
 
 ### Finally, Run
