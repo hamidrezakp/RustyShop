@@ -477,3 +477,27 @@ a:hover, .link:hover {
 
 .overflow-hidden { overflow: hidden; }
 
+/* 
+product single page
+*/
+.product-socail-icons i{
+  font-size: 1.4rem;
+}
+.facebook-icon{
+  color: #3B5998;;
+}
+.facebook-icon:hvoer{
+  color: #324b80;
+}
+.twitter-icon{
+  color: #55ACEE;
+}
+.twitter-icon:hover{
+  color: #369deb;
+}
+.telegram-icon{
+  color:#0088cc;
+}
+.telegram-icon:hover{
+  color:#0071aa;
+}

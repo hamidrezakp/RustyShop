@@ -63,5 +63,6 @@ cat DB/demo.sql | sqlite3 DB/DataBase.SQLITE
 
 just use it!
 ```
-cargo run
+cargo run it!
+
 ```
