@@ -2,48 +2,191 @@
 
 {% block body %}
 <div class="container">
-				<div class="dashboard-orders">
-								<h4 class="my-4">New Orders</h4>
-								<table class="table">
-												<thead class="thead-dark">
-																<tr>
-																				<th scope="col">#</th>
-																				<th scope="col">User</th>
-																				<th scope="col">Date</th>
-																				<th scope="col">Total Price</th>
-																</tr>
-												</thead>
-												<tbody>
-																<tr>
-																				<th scope="row">1</th>
-																				<td>Mark</td>
-																				<td>Otto</td>
-																				<td>@mdo</td>
-																</tr>
-												</tbody>
-								</table>
+	<div class="dashboard-orders">
+		<h4 class="my-4">New Orders</h4>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">User</th>
+					<th scope="col">Date</th>
+					<th scope="col">Total Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="dashboard-users">
+		<h4 class="my-4">New Users</h4>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Username</th>
+					<th scope="col">First name</th>
+					<th scope="col">Last name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!------- Orders ------->
+<div class="container">
+	<div class="dashboard-order-list">
+		<h4 class="my-4">Orders List</h4>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">User</th>
+					<th scope="col">Date</th>
+					<th scope="col">Total Price</th>
+					<th scope="col">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+					<td>Paid</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!------- Products ------->
+<div class="container">
+	<div class="dashboard-product-list">
+		<h4 class="my-4">Product List</h4>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Title</th>
+					<th scope="col">Category</th>
+					<th scope="col">Price</th>
+					<th scope="col">Show</th>
+					<th scope="col">Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Rick and Morty</td>
+					<td>Sticker</td>
+					<td> 10 <span>$</span></td>
+					<td><i class="fa fa-eye" aria-hidden="true"></i></td>
+					<td><i class="fas fa-edit" aria-hidden="true"></i></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!------- Customers ------->
+<div class="container">
+	<div class="dashboard-customer-list">
+		<h4 class="my-4">Customer List</h4>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Username</th>
+					<th scope="col">Email</th>
+					<th scope="col">Address</th>
+					<th scope="col">Billing Information</th>
+					<th scope="col">Show</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Nancy C. Bannerman</td>
+					<td>MoMo@kkc.net</td>
+					<td> 1542 Poco Mas Drive Frisco, TX 75034</span></td>
+					<td>VISA Card , TX 75034</td>
+					<td><i class="fas fa-eye" aria-hidden="true"></i></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<!------- Reports ------->
+
+<div class="container">
+	<div class="dashboard-report">
+		<h4 class="my-4">Reports</h4>
+		<div class="row">
+			<div class="col">
+				<div class="single-stats card mb-4 shadow-sm p-4">
+					<span class="single-stats-icon text-center">
+						<i class="fas fa-shopping-cart fa-2x"></i>
+					</span>
+					<p class="single-stats-heading" >number of all sales
+
+						<span> 12.000</span>
+					</p>
+				</div>
+
+			</div>
+			<div class="col">
+				<div class="single-stats card mb-4 shadow-sm p-4">
+					<span class="single-stats-icon text-center">
+						<i class="fas fa-shopping-cart fa-2x"></i>
+					</span>
+					<p class="single-stats-heading" >number of today sales
+
+						<span> 100 </span>
+					</p>
+				</div>
+			</div>
+			<div class="col">
+
+				<div class="single-stats card mb-4 shadow-sm p-4">
+					<span class="single-stats-icon text-center">
+						<i class="fas fa-truck fa-2x"></i>
+					</span>
+					<p class="single-stats-heading" >number product to ship
+
+						<span> 239</span>
+					</p>
+				</div>
+
+			</div>
+			<div class="col">
+
+
+				<div class="single-stats card mb-4 shadow-sm p-4">
+					<span class="single-stats-icon text-center">
+						<i class="fas fa-shipping-fast fa-2x"></i>
+					</span>
+					<p class="single-stats-heading" >number product sent
+
+						<span> 700 </span>
+					</p>
 				</div>
 				
-				<div class="dashboard-users">
-								<h4 class="my-4">New Users</h4>
-								<table class="table">
-												<thead class="thead-dark">
-																<tr>
-																				<th scope="col">#</th>
-																				<th scope="col">Username</th>
-																				<th scope="col">First name</th>
-																				<th scope="col">Last name</th>
-																</tr>
-												</thead>
-												<tbody>
-																<tr>
-																				<th scope="row">1</th>
-																				<td>Mark</td>
-																				<td>Otto</td>
-																				<td>@mdo</td>
-																</tr>
-												</tbody>
-								</table>
-				</div>
+			</div>
+		  </div>
+	</div>
 </div>
+
 {% endblock body %}

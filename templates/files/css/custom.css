@@ -41,6 +41,9 @@ a:hover, .link:hover {
   background: var(--light);
   border-radius: 35px;
   line-height: 2.5rem;
+  /* For Dummy Chrommium browser */
+  padding-inline-start: 1rem;
+  padding-inline-end: 1rem;
   padding-inline: 1rem;
   cursor: pointer;
   -webkit-transition: 0.3s;
