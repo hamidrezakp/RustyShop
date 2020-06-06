@@ -62,9 +62,22 @@ fn order(conn: DbConn, mut checkout_form: Json<models::CheckoutForm>) {
     database::insert_products_with_order(&conn, &checkout_form.products, order_id.unwrap());
 }
 
+#[get("/product?<pid>")]
+fn single(conn: DbConn, pid: i32) -> Template {
+    let mut context = Context::new();
+    let product = database::get_product(&conn, pid);
+    context.insert("title", &format!("{}, - Rusty Shop", product.name));
+    context.insert("product", &product);
+    context.insert("page", "single");
+    Template::render("single", &context)
+}
+
 pub fn run_rocket() {
     rocket::ignite()
-        .mount("/", routes![index, dashboard, checkout, signup, order])
+        .mount(
+            "/",
+            routes![index, dashboard, checkout, signup, order, single],
+        )
         .mount(
             "/assets",
             StaticFiles::from(concat!(env!("CARGO_MANIFEST_DIR"), "/templates/files")),

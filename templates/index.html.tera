@@ -30,7 +30,7 @@
 			{% for product in products %}
 			<div class="col-md-3">
 				<div class="card mb-3 shadow-sm">
-					<a href="product?id={{ product.id }}"><span 
+					<a href="product?pid={{ product.id }}"><span 
 					   class="badge badge-success position-absolute m-2 font-1rem stay-left">{{ product.price | round(method="common", precision=2) }}$</span>
 						<img src="assets/img/product/{{ product.image }}" alt="Github" width="100%" height="250">
 						<div class="card-body">

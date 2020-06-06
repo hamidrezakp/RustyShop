@@ -15,6 +15,15 @@ pub fn get_all_products(connection: &SqliteConnection, limit: i64) -> Vec<Produc
         .expect("Error loading products")
 }
 
+pub fn get_product(connection: &SqliteConnection, in_id: i32) -> Product {
+    use schema::products::dsl::*;
+
+    products
+        .filter(id.eq(in_id))
+        .first::<Product>(connection)
+        .expect("Error loading product")
+}
+
 pub fn get_all_customers(connection: &SqliteConnection) -> Vec<User> {
     use schema::users::dsl::*;
 
@@ -54,10 +63,9 @@ pub fn insert_and_get_payment(
         Some(
             payments
                 .select(id)
-                .order(id.desc())
-                .limit(1)
-                .load::<i32>(connection)
-                .expect("Error loading Payments id")[0],
+                .order(id)
+                .first::<i32>(connection)
+                .expect("Error loading Payments id"),
         )
     } else {
         None
@@ -83,17 +91,16 @@ pub fn insert_and_get_order(
         Some(
             orders
                 .select(id)
-                .order(id.desc())
-                .limit(1)
-                .load::<i32>(connection)
-                .expect("Error loading Orders id")[0],
+                .order(id)
+                .first::<i32>(connection)
+                .expect("Error loading Orders id"),
         )
     } else {
         None
     }
 }
 
-pub fn get_products_price(connection: &SqliteConnection, product_pairs: &Vec<(i32, usize)>) -> f32 {
+pub fn get_products_price(connection: &SqliteConnection, product_pairs: &Vec<(i32, i32)>) -> f32 {
     use schema::products::dsl::*;
 
     let product_ids: Vec<i32> = product_pairs.iter().map(|pair| pair.0).collect();
@@ -115,7 +122,7 @@ pub fn get_products_price(connection: &SqliteConnection, product_pairs: &Vec<(i3
 
 pub fn insert_products_with_order(
     connection: &SqliteConnection,
-    in_products: &Vec<(i32, usize)>,
+    in_products: &Vec<(i32, i32)>,
     in_order_id: i32,
 ) {
     use schema::ordered_products::dsl::*;
@@ -125,6 +132,7 @@ pub fn insert_products_with_order(
         .map(|item| OrderedProduct {
             order_id: in_order_id,
             product_id: (item.0),
+            quantity: (item.1),
         })
         .collect();
 

@@ -2,6 +2,7 @@ table! {
     ordered_products (order_id, product_id) {
         order_id -> Integer,
         product_id -> Integer,
+        quantity -> Integer,
     }
 }
 

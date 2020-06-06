@@ -37,7 +37,7 @@ pub struct Payment {
 pub struct OrderedProduct {
     pub order_id: i32,
     pub product_id: i32,
-    pub quantity: usize,
+    pub quantity: i32,
 }
 
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
@@ -76,7 +76,7 @@ pub struct FormUser {
 #[derive(Debug, Deserialize)]
 pub struct CheckoutForm {
     pub user_id: i32,
-    pub products: Vec<(i32, usize)>,
+    pub products: Vec<(i32, i32)>,
     pub address: String,
     pub phonenumber: String,
 }

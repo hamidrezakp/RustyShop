@@ -1,0 +1,9 @@
+{% extends "base" %}
+
+{% block body %}
+
+<div class="single-wrapper">
+	 {{product.name}}
+</div>
+
+{% endblock body %}

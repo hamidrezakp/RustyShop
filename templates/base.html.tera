@@ -73,7 +73,7 @@
 
 					</ul>
 
-					{% if page == 'index' %}
+					{% if page != 'Dashboard' %}
 					<div>
 						<ul class="navbar-nav mr-auto">
 
