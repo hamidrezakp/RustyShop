@@ -72,13 +72,13 @@ pub struct User {
 }
 
 /// The user type we get in Forms
-#[derive(Debug, PartialEq, FromForm, Insertable)]
+#[derive(Debug, PartialEq, FromForm, Insertable, Serialize, Deserialize)]
 #[table_name = "users"]
 pub struct FormUser {
-    pub username: String,
-    pub password: String,
     pub firstname: String,
     pub lastname: String,
+    pub username: String,
+    pub password: String,
 }
 
 /// The type we get in checkout page

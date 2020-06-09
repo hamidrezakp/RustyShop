@@ -2,6 +2,7 @@ use crate::database;
 use crate::models;
 use crate::rocket;
 
+use rocket::http::Status;
 use rocket::request::Form;
 use rocket_contrib::{
     json::Json,
@@ -39,8 +40,13 @@ fn checkout(conn: DbConn) -> Template {
 }
 
 #[post("/signup", data = "<user>")]
-fn signup(conn: DbConn, user: Form<models::FormUser>) {
-    database::insert_user(&conn, user.into_inner());
+fn signup(conn: DbConn, user: Json<models::FormUser>) -> &'static str {
+    let result = database::insert_user(&conn, user.into_inner());
+    match result {
+        Ok(()) => "OK",
+        Err(database::DBResult::DuplicateUsername) => "Error: Duplicate Username",
+        Err(_) => "Other Error",
+    }
 }
 
 #[post("/checkout", data = "<checkout_form>")]

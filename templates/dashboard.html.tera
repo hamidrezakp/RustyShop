@@ -14,12 +14,14 @@
 				</tr>
 			</thead>
 			<tbody>
+				{% for order in last_orders %}
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
+					<th scope="row">{{order.id}}</th>
+					<td>Username</td>
+					<td>order.datetime</td>
+					<td>order.price</td>
 				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
@@ -38,9 +40,9 @@
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
+					<td>TODO</td>
+					<td>TODO</td>
+					<td>@TODO</td>
 				</tr>
 			</tbody>
 		</table>

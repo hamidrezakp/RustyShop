@@ -1,170 +1,170 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-		<title>{{ title }}</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <title>{{ title }}</title>
 
-		<!-- Bootstrap and Fontawesome CSS -->
-		<link href="assets/css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <!-- Bootstrap and Fontawesome CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
 
-		<!-- Favicons -->
-		<link rel="apple-touch-icon" href="assets/img/180x180.png" sizes="180x180">
-		<link rel="icon" href="assets/img/32x32.png" sizes="32x32" type="image/png">
-		<link rel="icon" href="assets/img/16x16.png" sizes="16x16" type="image/png">
-		<meta name="theme-color" content="#563d7c">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/180x180.png" sizes="180x180">
+    <link rel="icon" href="assets/img/32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/img/16x16.png" sizes="16x16" type="image/png">
+    <meta name="theme-color" content="#563d7c">
 
-		<!-- Custom styles -->
-		<link href="assets/css/custom.css" rel="stylesheet">
-	</head>
-	<body>
-		<nav class="navbar navbar-expand-md navbar-light py-5">
-			<div class="container">
-				<a class="navbar-brand" href="/">
-					<img src="assets/img/logo.svg" alt="Logo" width="50px" class="logo">
-				</a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-toggle="collapse"
-					data-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+    <!-- Custom styles -->
+    <link href="assets/css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light py-5">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="assets/img/logo.svg" alt="Logo" width="50px" class="logo">
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="/">
-								Shop<span class="sr-only">(current)</span></a>
-						</li>
-						{% if page == 'dashboard' %}
-						<li class="nav-item active">
-							<a class="nav-link" href="/dashboard">
-								Dashboard
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								Orders
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								Products
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								Customers
-							</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
-								Reports
-							</a>
-						</li>
-						{% endif %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                Shop<span class="sr-only">(current)</span></a>
+            </li>
+            {% if page == 'dashboard' %}
+            <li class="nav-item active">
+              <a class="nav-link" href="/dashboard">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Customers
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Reports
+              </a>
+            </li>
+            {% endif %}
 
-					</ul>
+          </ul>
 
-					{% if page != 'Dashboard' %}
-					<div>
-						<ul class="navbar-nav mr-auto">
+          {% if page != 'Dashboard' %}
+          <div>
+            <ul class="navbar-nav mr-auto">
 
-							<li class="buy-cart">
-								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-								Shopping Cart
-								<span class="badge badge-pill badge-dark">0</span>
-							</li>
-							<li class="user-info">
-								<button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signupModal">Sign Up</button>
-								|
-								<button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signinModal">Sign In</button>
-							</li>
-						</ul>
-					</div>
+              <li class="buy-cart">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Shopping Cart
+                <span class="badge badge-pill badge-dark">0</span>
+              </li>
+              <li class="user-info">
+                <button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+                |
+                <button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signinModal">Sign In</button>
+              </li>
+            </ul>
+          </div>
 
-					{% endif %}
-				</div>
-			</div>
-		</nav>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
 
-		<!-- Sign Up Modal -->
-		<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-sm">
-				<div class="modal-content">
-						<form action="/signup" method="post">
-					<h5 class="text-center mt-4" id="signupModalLabel">Sign Up</h5>
-					<div class="m-3">
-							<div class="form-group">
-								<input type="text" class="form-control text-center" id="username" name="username" placeholder="Username" required>
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control text-center" id="password" name="password" placeholder="Password" required>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control text-center" id="firstname" name="firstname" placeholder="First Name" required>
-							</div>
-							<div class="form-group">
-								<input type="text" class="form-control text-center" id="lastname" name="lastname" placeholder="Last Name" required>
-							</div>
-					</div>
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <form action="/signup" method="post" id="signup-form">
+            <h5 class="text-center mt-4" id="signupModalLabel">Sign Up</h5>
+            <div class="m-3">
+              <div class="form-group">
+                <input type="text" class="form-control text-center" id="username" name="username" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control text-center" id="password" name="password" placeholder="Password" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control text-center" id="firstname" name="firstname" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control text-center" id="lastname" name="lastname" placeholder="Last Name" required>
+              </div>
+            </div>
 
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Sign Up</button>
-					</div>
-						</form>
-				</div>
-			</div>
-		</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="signup">Sign Up</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 
-		<!-- Sign In Modal -->
-		<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-sm">
-				<div class="modal-content">
-					<h5 class="text-center mt-4" id="signinModalLabel">Sign In</h5>
-					<div class="m-3">
-						<form>
-							<div class="form-group">
-								<input type="text" class="form-control text-center" id="username" placeholder="Username" required>
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control text-center" id="password" placeholder="Password" required>
-							</div>
-						</form>
-					</div>
+    <!-- Sign In Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+          <h5 class="text-center mt-4" id="signinModalLabel">Sign In</h5>
+          <div class="m-3">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control text-center" id="username" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control text-center" id="password" placeholder="Password" required>
+              </div>
+            </form>
+          </div>
 
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Sign In</button>
-					</div>
-				</div>
-			</div>
-		</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Sign In</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-		{% block body %}
-		{% endblock body %}
+    {% block body %}
+    {% endblock body %}
 
-		<footer class="container py-5">
-			<div class="row">
-				<div class="col-12 col-md">
-					<img src="assets/img/logo.svg" alt="Logo" width="28px" class="mb-2">
-					<span>Rusty Shop - Feel free to use for any purpose.
-						<small class="d-block mb-3 text-muted">License : CC BY 2.0</small>
-				</div>
-			</div>
-		</footer>
-		<script src="assets/js/jquery.js"></script>
-		<script>window.jQuery || document.write('<script src="files/jquery.js"><\/script>')</script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/custom.js"></script>
-	</body>
+    <footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          <img src="assets/img/logo.svg" alt="Logo" width="28px" class="mb-2">
+          <span>Rusty Shop - Feel free to use for any purpose.
+            <small class="d-block mb-3 text-muted">License : CC BY 2.0</small>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/jquery.js"></script>
+    <script>window.jQuery || document.write('<script src="files/jquery.js"><\/script>')</script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
 </html>
 

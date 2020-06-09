@@ -3,8 +3,14 @@ use crate::schema;
 use chrono::Utc;
 use diesel::insert_into;
 use diesel::prelude::*;
+use diesel::result::DatabaseErrorKind;
 use diesel::result::QueryResult;
 use diesel::sqlite::SqliteConnection;
+
+pub enum DBResult {
+    DuplicateUsername,
+    Other,
+}
 
 pub fn get_all_products(connection: &SqliteConnection, limit: i64) -> Vec<Product> {
     use schema::products::dsl::*;
@@ -33,13 +39,18 @@ pub fn get_all_customers(connection: &SqliteConnection) -> Vec<User> {
         .expect("Error loading users")
 }
 
-pub fn insert_user(connection: &SqliteConnection, in_user: FormUser) {
+pub fn insert_user(connection: &SqliteConnection, in_user: FormUser) -> Result<(), DBResult> {
     use schema::users::dsl::*;
 
-    insert_into(users)
-        .values(&in_user)
-        .execute(connection)
-        .unwrap();
+    let result = insert_into(users).values(&in_user).execute(connection);
+
+    match result {
+        Ok(_) => Ok(()),
+        Err(diesel::result::Error::DatabaseError(UniqueViolation, _)) => {
+            Err(DBResult::DuplicateUsername)
+        }
+        _ => Err(DBResult::Other),
+    }
 }
 
 pub fn insert_and_get_payment(

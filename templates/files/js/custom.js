@@ -32,6 +32,40 @@ function addToCart(product) {
 	update();
 }
 
+init_btns();
+
+function init_btns() {
+
+$('#signup').on('click', function(e) {
+    e.preventDefault();
+
+	let form = $('#signup-form');
+	let url = form.attr('action');
+
+	let data = {
+        firstname: form.find('input[name=firstname]')[0].value,
+        lastname: form.find('input[name=lastname]')[0].value,
+        username: form.find('input[name=username]')[0].value,
+        password: form.find('input[name=password]')[0].value,
+	};
+
+	$.ajax({
+		url: url,
+		type: "POST",
+		data: JSON.stringify(data),
+		dataType: 'json',
+		async: true,
+		contentType: 'application/json; charset=utf-8',
+        success: function(data){
+            window.alert(data.responseText);
+        },
+        error: function(data){
+            window.alert(data.responseText);
+        }
+	});
+});
+
+
 $('.addToCartBtn').on('click', function(e) {
     // TODO: Check quantity
     e.preventDefault();
@@ -50,7 +84,8 @@ $('.card').hover(function(){
   $(this).find(' > a.stay-right').addClass('stay-right-visible');
 },function(){
   $(this).find(' > a.stay-right').removeClass('stay-right-visible');
-})
+});
+}
 
 function update_cart_count() {
 	var cart = JSON.parse(localStorage.getItem('cart'));            
