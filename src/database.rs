@@ -15,6 +15,7 @@ pub enum DBResult {
 pub fn get_all_products(connection: &SqliteConnection, limit: i64) -> Vec<Product> {
     use schema::products::dsl::*;
 
+    get_products_of_order(connection, 2);
     products
         .limit(limit)
         .load::<Product>(connection)
@@ -37,6 +38,14 @@ pub fn get_all_customers(connection: &SqliteConnection) -> Vec<User> {
         .filter(access.eq(3))
         .load::<User>(connection)
         .expect("Error loading users")
+}
+
+pub fn get_all_orders(connection: &SqliteConnection) -> Vec<Order> {
+    use schema::orders::dsl::*;
+
+    orders
+        .load::<Order>(connection)
+        .expect("Error loading orders")
 }
 
 pub fn insert_user(connection: &SqliteConnection, in_user: FormUser) -> Result<(), DBResult> {
@@ -153,4 +162,20 @@ pub fn insert_products_with_order(
         .values(ordered_products_pair)
         .execute(connection)
         .unwrap();
+    println!("i ran !!");
+}
+
+pub fn get_products_of_order(connection: &SqliteConnection, in_order_id: i32)
+//-> Vec<(i32, i32, f32)> {
+{
+    use schema::ordered_products::dsl::*;
+    use schema::products;
+
+    let out = ordered_products
+        .inner_join(products::table)
+        .select((products::price, quantity))
+        .filter(order_id.eq(in_order_id))
+        .load::<(f32, i32)>(connection);
+
+    println!("{:?}", out);
 }

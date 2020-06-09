@@ -17,9 +17,9 @@
 				{% for order in last_orders %}
 				<tr>
 					<th scope="row">{{order.id}}</th>
-					<td>Username</td>
-					<td>order.datetime</td>
-					<td>order.price</td>
+					<td>TODO</td>
+					<td>{{order.datetime}}</td>
+					<td>{{order.price}}</td>
 				</tr>
 				{% endfor %}
 			</tbody>
@@ -76,7 +76,7 @@
 	</div>
 </div>
 <!------- Products ------->
-<div class="container">
+<div class="container display-none">
 	<div class="dashboard-product-list">
 		<h4 class="my-4">Product List</h4>
 		<table class="table">

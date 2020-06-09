@@ -28,6 +28,7 @@ fn dashboard(conn: DbConn) -> Template {
     let mut context = Context::new();
     context.insert("title", "Dashboard");
     context.insert("page", "dashboard");
+    context.insert("last_orders", &database::get_all_orders(&conn));
     Template::render("dashboard", &context)
 }
 

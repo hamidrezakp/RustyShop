@@ -2,13 +2,6 @@ use crate::schema::*;
 use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, PartialEq, Serialize, Deserialize)]
-pub enum Status {
-    Draft,
-    Sent,
-    Error(String),
-}
-
 #[derive(Identifiable, Queryable, PartialEq, Debug, Serialize, Deserialize)]
 #[table_name = "orders"]
 pub struct Order {
@@ -16,7 +9,16 @@ pub struct Order {
     pub datetime: NaiveDateTime,
     pub address: String,
     pub phone: String,
-    pub status: Status,
+    pub status: String,
+}
+
+#[derive(PartialEq, Debug, Serialize, Deserialize)]
+pub struct OrderWithPrice {
+    pub datetime: NaiveDateTime,
+    pub address: String,
+    pub phone: String,
+    pub status: String,
+    pub price: f32,
 }
 
 #[derive(Identifiable, Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
