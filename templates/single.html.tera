@@ -2,58 +2,70 @@
 
 {% block body %}
 
-<div class="single-wrapper">
-
+<div class="minicart">
+	<div class="minicart-overlay"></div>
+	<div class="minicart-inner">
+		<div class="minicart-header">
+			<span class="badge badge-pill badge-dark">0</span>
+			<div class="text-center minicart-header-title">Shopping Cart</div>
+			<a href="#"><i class="fa fa-times"></i></a>
+		</div>
+		<div class="minicart-products p-3">
+		</div>
+		<div class="p-4">
+			<div class="minicart-footer-total">
+				<div class="minicart-footer-total-label">Total Price:</div>
+				<div class="minicart-footer-total-price">$0</div>
+			</div>
+			<a href="/checkout">
+				<div class="btn btn-success minicart-footer-btn">Finish Shopping</div>
+			</a>
+		</div>
+	</div>
 </div>
+
 <div class="container">
 	<div class="single-product">
 		<div class="row">
 			<!-- product image -->
 			<div class="col-md-4">
 				<div class="single-product-image-overlay">
-					<img src="assets/img/product/{{ product.image }}" alt=""
+					<img src="assets/img/product/{{ product.image }}"
+						alt="{{ product.name }} image"
 						class="rounded shadow-sm mb-5 w-100 mx-auto">
 				</div>
 			</div>
 			<!-- product data -->
 			<div class="col-md-8">
 				<div class="product-meta">
-
-
-					<h1 class="product-title">{{product.name}}</h1>
+					<h1 class="product-title">{{product.name}}
+						<a class="addToCartBtn" 
+							  href="#" data-id="{{ product.id }}"
+										   data-name="{{ product.name }}"
+										   data-price="{{ product.price | round(method="common", precision=2) }}"
+										   data-image="{{ product.image }}">
+						<span class="badge badge-primary font-1rem">Add <i class="fa fa-plus" aria-hidden="true"></i></span>
+				    </a>
+					</h1>
 					<p title="price of product">
 						<em>Price</em>: <span class="text-success">
 							<strong>
-								<money>
-									<currency>$</currency> {{ product.price }}
-								</money>
+								<money><currency>$</currency>{{ product.price }}</money>
 							</strong>
 						</span>
 					</p>
-
 				</div>
-					<p class="product-description" title="product description">
-						{{ product.description}}
-					</p>
-
-					<div class="product-socail-icons float-left">
-						<a href="#" class=""><i aria-hidden="true" class="fab fa-facebook-square facebook-icon"></i></i></a>
-						<a href="#" class="text-success"><i aria-hidden="true" class="fab fa-twitter-square twitter-icon"></i></a>
-						<a href="#" class="text-success"><i aria-hidden="true" class="fab fa-telegram telegram-icon"></i></a>
-					  </div>
-					  
+				<p class="product-description" title="product description">
+					{{ product.description}}
+				</p>
+				<div class="product-socail-icons float-left">
+					<a href="#" class=""><i aria-hidden="true" class="fab fa-facebook-square facebook-icon"></i></i></a>
+					<a href="#" class="text-success"><i aria-hidden="true" class="fab fa-twitter-square twitter-icon"></i></a>
+					<a href="https://telegram.me/share/url?text={{ product.name }}&url=https://rustyshop.rs/product?pid={{product.id}}" class="text-success"><i aria-hidden="true" class="fab fa-telegram telegram-icon"></i></a>
 				</div>
-
-
-
-			
 			</div>
-
 		</div>
-
-	
-
-
+	</div>
 </div>
 
 {% endblock body %}
