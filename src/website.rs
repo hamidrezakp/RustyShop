@@ -28,7 +28,8 @@ fn dashboard(conn: DbConn) -> Template {
     let mut context = Context::new();
     context.insert("title", "Dashboard");
     context.insert("page", "dashboard");
-    context.insert("last_orders", &database::get_all_orders(&conn));
+    context.insert("orders", &database::get_all_orders(&conn));
+    context.insert("products", &database::get_all_products(&conn, 100));
     Template::render("dashboard", &context)
 }
 
@@ -59,7 +60,7 @@ fn order(conn: DbConn, mut checkout_form: Json<models::CheckoutForm>) {
     let order_id =
         database::insert_and_get_order(&conn, &checkout_form.address, &checkout_form.phonenumber);
 
-    let payment = database::insert_and_get_payment(
+    database::insert_and_get_payment(
         &conn,
         payment_amount,
         order_id.unwrap(),

@@ -1,53 +1,6 @@
 {% extends "base" %}
 
 {% block body %}
-<div class="container">
-	<div class="dashboard-orders">
-		<h4 class="my-4">New Orders</h4>
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">User</th>
-					<th scope="col">Date</th>
-					<th scope="col">Total Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for order in last_orders %}
-				<tr>
-					<th scope="row">{{order.id}}</th>
-					<td>TODO</td>
-					<td>{{order.datetime}}</td>
-					<td>{{order.price}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
-
-	<div class="dashboard-users">
-		<h4 class="my-4">New Users</h4>
-		<table class="table">
-			<thead class="thead-dark">
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Username</th>
-					<th scope="col">First name</th>
-					<th scope="col">Last name</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>TODO</td>
-					<td>TODO</td>
-					<td>@TODO</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
 <!------- Orders ------->
 <div class="container">
 	<div class="dashboard-order-list">
@@ -56,21 +9,22 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">User</th>
+					<th scope="col">User phone</th>
 					<th scope="col">Date</th>
 					<th scope="col">Total Price</th>
 					<th scope="col">Status</th>
 				</tr>
 			</thead>
 			<tbody>
+				{% for order in orders %}
 				<tr>
-					<th scope="row">1</th>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-					<td>Paid</td>
-
+					<th scope="row">0</th>
+					<td>{{order.phone}}</td>
+					<td>{{order.datetime}}</td>
+					<td>${{order.price}}</td>
+					<td>{{order.status}}</td>
 				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
@@ -84,21 +38,24 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Title</th>
-					<th scope="col">Category</th>
 					<th scope="col">Price</th>
 					<th scope="col">Show</th>
 					<th scope="col">Edit</th>
 				</tr>
 			</thead>
 			<tbody>
+				{% for product in products %}
 				<tr>
-					<th scope="row">1</th>
-					<td>Rick and Morty</td>
-					<td>Sticker</td>
-					<td> 10 <span>$</span></td>
-					<td><i class="fa fa-eye" aria-hidden="true"></i></td>
+					<th scope="row">{{product.id}}</th>
+					<td>{{ product.name }}</td>
+					<td><span>$</span> {{ product.price }}</td>
+					<td><a href="/product?pid={{ product.id }}">
+							<i class="fa fa-eye" aria-hidden="true"></i>
+						</a>
+					</td>
 					<td><i class="fas fa-edit" aria-hidden="true"></i></td>
 				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
@@ -144,7 +101,7 @@
 					</span>
 					<p class="single-stats-heading" >number of all sales
 
-						<span> 12.000</span>
+					<span> 12.000</span>
 					</p>
 				</div>
 
@@ -156,7 +113,7 @@
 					</span>
 					<p class="single-stats-heading" >number of today sales
 
-						<span> 100 </span>
+					<span> 100 </span>
 					</p>
 				</div>
 			</div>
@@ -168,7 +125,7 @@
 					</span>
 					<p class="single-stats-heading" >number product to ship
 
-						<span> 239</span>
+					<span> 239</span>
 					</p>
 				</div>
 
@@ -182,12 +139,12 @@
 					</span>
 					<p class="single-stats-heading" >number product sent
 
-						<span> 700 </span>
+					<span> 700 </span>
 					</p>
 				</div>
-				
+
 			</div>
-		  </div>
+		</div>
 	</div>
 </div>
 

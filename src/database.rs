@@ -15,7 +15,6 @@ pub enum DBResult {
 pub fn get_all_products(connection: &SqliteConnection, limit: i64) -> Vec<Product> {
     use schema::products::dsl::*;
 
-    get_products_of_order(connection, 2);
     products
         .limit(limit)
         .load::<Product>(connection)
@@ -40,12 +39,27 @@ pub fn get_all_customers(connection: &SqliteConnection) -> Vec<User> {
         .expect("Error loading users")
 }
 
-pub fn get_all_orders(connection: &SqliteConnection) -> Vec<Order> {
+pub fn get_all_orders(connection: &SqliteConnection) -> Vec<OrderWithPrice> {
     use schema::orders::dsl::*;
 
-    orders
+    let all_orders = orders
         .load::<Order>(connection)
-        .expect("Error loading orders")
+        .expect("Error loading orders");
+
+    all_orders
+        .iter()
+        .map(|item| OrderWithPrice::from_order(item, get_payment(connection, item.id)))
+        .collect::<Vec<_>>()
+}
+
+pub fn get_payment(connection: &SqliteConnection, in_order_id: i32) -> f32 {
+    use schema::payments::dsl::*;
+
+    payments
+        .select(amount)
+        .filter(order_id.eq(in_order_id))
+        .first(connection)
+        .unwrap()
 }
 
 pub fn insert_user(connection: &SqliteConnection, in_user: FormUser) -> Result<(), DBResult> {
@@ -111,7 +125,7 @@ pub fn insert_and_get_order(
         Some(
             orders
                 .select(id)
-                .order(id)
+                .order(id.desc())
                 .first::<i32>(connection)
                 .expect("Error loading Orders id"),
         )
@@ -162,7 +176,6 @@ pub fn insert_products_with_order(
         .values(ordered_products_pair)
         .execute(connection)
         .unwrap();
-    println!("i ran !!");
 }
 
 pub fn get_products_of_order(connection: &SqliteConnection, in_order_id: i32)

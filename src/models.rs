@@ -21,6 +21,18 @@ pub struct OrderWithPrice {
     pub price: f32,
 }
 
+impl OrderWithPrice {
+    pub fn from_order(order: &Order, in_price: f32) -> Self {
+        OrderWithPrice {
+            datetime: order.datetime,
+            address: order.address.clone(),
+            phone: order.phone.clone(),
+            status: order.status.clone(),
+            price: in_price,
+        }
+    }
+}
+
 #[derive(Identifiable, Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
 #[belongs_to(Order, foreign_key = "order_id")]
 #[table_name = "payments"]
