@@ -1,5 +1,6 @@
 table! {
-    ordered_products (order_id, product_id) {
+    ordered_products (id) {
+        id -> Integer,
         order_id -> Integer,
         product_id -> Integer,
         quantity -> Integer,

@@ -127,14 +127,16 @@ pub fn insert_products_with_order(
 ) {
     use schema::ordered_products::dsl::*;
 
-    let ordered_products_pair: Vec<OrderedProduct> = in_products
+    let ordered_products_pair = in_products
         .iter()
-        .map(|item| OrderedProduct {
-            order_id: in_order_id,
-            product_id: (item.0),
-            quantity: (item.1),
+        .map(|item| {
+            (
+                product_id.eq(item.0),
+                order_id.eq(in_order_id),
+                quantity.eq(item.1),
+            )
         })
-        .collect();
+        .collect::<Vec<_>>();
 
     insert_into(ordered_products)
         .values(ordered_products_pair)

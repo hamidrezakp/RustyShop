@@ -30,11 +30,20 @@ pub struct Payment {
     pub user_id: i32,
 }
 
-#[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize, Insertable)]
+#[derive(Queryable, Associations, PartialEq, Debug, Serialize, Deserialize)]
 #[belongs_to(Order, foreign_key = "order_id")]
 #[belongs_to(Product, foreign_key = "product_id")]
 #[table_name = "ordered_products"]
 pub struct OrderedProduct {
+    pub id: i32,
+    pub order_id: i32,
+    pub product_id: i32,
+    pub quantity: i32,
+}
+
+#[derive(PartialEq, Debug, Insertable)]
+#[table_name = "ordered_products"]
+pub struct NewOrderedProduct {
     pub order_id: i32,
     pub product_id: i32,
     pub quantity: i32,
