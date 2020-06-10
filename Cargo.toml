@@ -1,7 +1,7 @@
 [package]
 name = "rusty_shop"
 version = "0.1.0"
-authors = ["Hamid R. K. Pishghadam <hamidrkp@riseup.net>"]
+authors = [""]
 edition = "2018"
 
 [dependencies]

@@ -9,7 +9,7 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">#</th>
-					<th scope="col">User phone</th>
+					<th scope="col">User Adress</th>
 					<th scope="col">Date</th>
 					<th scope="col">Total Price</th>
 					<th scope="col">Status</th>
@@ -19,7 +19,7 @@
 				{% for order in orders %}
 				<tr>
 					<th scope="row">0</th>
-					<td>{{order.phone}}</td>
+					<td>{{order.address}}</td>
 					<td>{{order.datetime}}</td>
 					<td>${{order.price}}</td>
 					<td>{{order.status}}</td>

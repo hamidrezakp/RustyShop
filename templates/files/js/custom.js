@@ -171,7 +171,7 @@ function remove_product(node){
 	    return item.id !== node_id;
 	});
 
-        localStorage.setItem('cart', JSON.stringify(cart));
+	localStorage.setItem('cart', JSON.stringify(cart));
 
 	$(`.minicart-product-row[data-id=${node_id}]`).remove();
 

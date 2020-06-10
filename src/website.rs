@@ -2,7 +2,6 @@ use crate::database;
 use crate::models;
 use crate::rocket;
 
-use rocket::http::Status;
 use rocket::request::Form;
 use rocket_contrib::{
     json::Json,
@@ -29,7 +28,7 @@ fn dashboard(conn: DbConn) -> Template {
     context.insert("title", "Dashboard");
     context.insert("page", "dashboard");
     context.insert("orders", &database::get_all_orders(&conn));
-    context.insert("products", &database::get_all_products(&conn, 100));
+    context.insert("products", &database::get_all_products(&conn, 20));
     Template::render("dashboard", &context)
 }
 

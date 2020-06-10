@@ -97,7 +97,7 @@ pub fn insert_and_get_payment(
         Some(
             payments
                 .select(id)
-                .order(id)
+                .order(id.desc())
                 .first::<i32>(connection)
                 .expect("Error loading Payments id"),
         )
@@ -176,19 +176,4 @@ pub fn insert_products_with_order(
         .values(ordered_products_pair)
         .execute(connection)
         .unwrap();
-}
-
-pub fn get_products_of_order(connection: &SqliteConnection, in_order_id: i32)
-//-> Vec<(i32, i32, f32)> {
-{
-    use schema::ordered_products::dsl::*;
-    use schema::products;
-
-    let out = ordered_products
-        .inner_join(products::table)
-        .select((products::price, quantity))
-        .filter(order_id.eq(in_order_id))
-        .load::<(f32, i32)>(connection);
-
-    println!("{:?}", out);
 }
