@@ -73,15 +73,16 @@
 
           </ul>
 
-          {% if page != 'Dashboard' %}
           <div>
             <ul class="navbar-nav mr-auto">
 
+          {% if page != 'dashboard' %}
               <li class="buy-cart">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 Shopping Cart
                 <span class="badge badge-pill badge-dark">0</span>
               </li>
+          {% endif %}
               <li class="user-info">
                 <button type="button" class="btn btn-link link" data-toggle="modal" data-target="#signupModal">Sign Up</button>
                 |
@@ -90,7 +91,6 @@
             </ul>
           </div>
 
-          {% endif %}
         </div>
       </div>
     </nav>
