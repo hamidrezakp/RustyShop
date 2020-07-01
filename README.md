@@ -39,7 +39,7 @@ after build app you can use diesel to setup database
 ```
 diesel setup --database-url DB/DataBase.SQLITE
 ```
- *import demo data* 
+#### import demo data
 use this command to import demo data in database
 ```
 cat DB/demo.sql | sqlite3 DB/DataBase.SQLITE
